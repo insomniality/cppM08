@@ -1,23 +1,42 @@
 #include "Span.hpp"
 
-void	addNumber()
+void	Span<T>::addNumber(T& n)
+{
+	if (this->arr.size() + 1 < this->siz)
+		this->arr.push_back(n);
+	else
+		throw(std::exception);
+}
+
+void	Span<T>::addNumberS()
 {
 
 }
 
-void	addNumberS()
+size_t	Span<T>::shortestSpan()
 {
+	// if (this->arr.size() < 2)
+	// 	throw(std::exception);
 
+	// Span cpy = *this;
+	
+	// std::vector<int>::iterator min = this->arr.min_element(arr.begin(), arr.end());
+
+	// this->arr.erase(min);
+	// std::vector<int>::iterator min2 = ;
+
+	// return (distance(min, min2));
 }
 
-size_t	shortestSpan()
+size_t	Span<T>::longestSpan()
 {
+	if (this->arr.size() < 1 && this->arr)
+		throw(std::exception);
+	// T min = this->arr.min_element(arr.begin(), arr.end());
+	std::vector<int>::iterator min = this->arr.min_element(arr.begin(), arr.end());
+	std::vector<int>::iterator max = this->arr.max_element(arr.begin(), arr.end());
 
-}
-
-size_t	longestSpan()
-{
-
+	return (distance(min, max));
 }
 
 /////////////
@@ -29,16 +48,17 @@ Span<T>::Span() : arr(NULL), siz(0)
 }
 
 template<typename T>
-Span<T>::Span(unsigned int n) : arr(NULL), siz(n)
+Span<T>::Span(unsigned int n)
 {
-
+	siz = n;
+	arr.reserve(n);
 }
 
 template<typename T>
 Span<T>::Span(const Span<T>& obj)
 {
-	this->arr = obj.arr; // es urish dzev piti grvi
-	this->siz = obj.siz;
+	arr = obj.arr; // es urish dzev piti grvi
+	siz = obj.siz;
 }
 
 template<typename T>
@@ -46,7 +66,8 @@ Span<T>& Span<T>::operator=(const Span<T>& obj)
 {
 	if(this == &obj)
 		return (*this);
-	this->siz = obj.siz;
+	arr = obj.arr; // es urish dzev piti grvi
+	siz = obj.siz;
 
 	return (*this);
 }
