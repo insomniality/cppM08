@@ -2,18 +2,16 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 ///TODO: wtf is associative containers
 
-template<typename T>
 class Span
 {
 	private:
-		// T*				arr;
-		std::vector<T> 		arr;
-		unsigned int	siz;
-
+		unsigned int			siz;
+		std::vector<int> 		arr;
 	public:
-		void	addNumber(T&);
+		void	addNumber(int);
 		void	addNumberS();
 		size_t	shortestSpan();
 		size_t	longestSpan();
