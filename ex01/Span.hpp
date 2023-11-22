@@ -1,18 +1,24 @@
 #pragma once
 
+#include <iostream>
+///TODO: wtf is associative containers
+
+template<typename T>
 class Span
 {
 	private:
-		/* data */
+		T*				arr;
+		unsigned int	siz;
+
 	public:
-		Span(/* args */);
+		void	addNumber();
+		void	addNumberS();
+		size_t	shortestSpan();
+		size_t	longestSpan();
+	public:
+		Span();
+		Span(unsigned int);
+		Span(const Span& obj);
+		Span& operator=(const Span& obj);
 		~Span();
 };
-
-Span::Span(/* args */)
-{
-}
-
-Span::~Span()
-{
-}
