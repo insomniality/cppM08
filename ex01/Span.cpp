@@ -12,9 +12,12 @@ void	Span::addNumber(int n)
 		throw(std::exception());
 }
 
-void	Span::addNumberS()
+void	Span::addNumberS(std::vector<int>::iterator first, std::vector<int>::iterator last)
 {
+	arr.insert(arr.end(), first, last);
 
+	if (arr.size() > siz)
+		throw std::exception();
 }
 
 size_t	Span::shortestSpan()

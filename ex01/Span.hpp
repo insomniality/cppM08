@@ -9,10 +9,10 @@ class Span
 {
 	private:
 		unsigned int			siz;
-		std::vector<int> 		arr;
 	public:
+		std::vector<int> 		arr;
 		void	addNumber(int);
-		void	addNumberS();
+		void	addNumberS(std::vector<int>::iterator first, std::vector<int>::iterator last);
 		size_t	shortestSpan();
 		size_t	longestSpan();
 	public:
